@@ -1,0 +1,2656 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      },
+      {
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "enable": true,
+        "iconColor": "dark-orange",
+        "name": "Session",
+        "query": "{\"annotation\": \"session\", \"device\": \"${DEVICE}\"}"
+      },
+      {
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "enable": true,
+        "iconColor": "#ffce6c",
+        "name": "Split",
+        "query": "{\"annotation\": \"split\", \"device\": \"${DEVICE}\"}"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 7,
+  "iteration": 1661283783998,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "grafana-simple-json-datasource",
+        "uid": "CYlqBM8nz"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 13,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Overview",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 20,
+      "maxDataPoints": 400,
+      "options": {
+        "content": "<img src=\"https://am.dk/media/6360/kia-ev6-sort.png?anchor=center&mode=crop&width=1280&height=720&rnd=132961239610000000\" alt=\"Kia\">",
+        "mode": "html"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "DistanceTotal"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#3d85c6",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 40
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "super-light-green",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "dark-green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 4,
+        "y": 1
+      },
+      "id": 30,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "SoH",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "SoH"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#3d85c6",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 40
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "super-light-green",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "dark-green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 6,
+        "y": 1
+      },
+      "id": 21,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "SoC (last)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "SoC"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#3d85c6",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 40
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "super-light-green",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "dark-green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 8,
+        "y": 1
+      },
+      "id": 39,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "SoC (used)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "SoC"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "range"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#3d85c6",
+            "mode": "fixed"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "km"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Distance (km)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 1
+      },
+      "id": 41,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Distance Trip",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "DistanceTrip"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Time",
+                "2F6913DB:CAN:CH2:ev6-gps:DistanceTrip"
+              ]
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Distance (km)",
+            "binary": {
+              "left": "2F6913DB:CAN:CH2:ev6-gps:DistanceTrip",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 15
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 25
+              },
+              {
+                "color": "dark-red",
+                "value": 30
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 13,
+        "y": 1
+      },
+      "id": 31,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "kWh/100km",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Speed|Current DC"
+          }
+        },
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "Time"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "mean"
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "W",
+            "binary": {
+              "left": "2F6913DB:CAN:CH1:ev6-gps:BatteryDCVoltage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "2F6913DB:CAN:CH1:ev6-gps:BatteryCurrent"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "W/(m/s)",
+            "binary": {
+              "left": "W",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "2F6913DB:CAN:CH2:ev6-gps:Speed"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "kWh/100km",
+            "binary": {
+              "left": "W/(m/s)",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "0.027777778"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "autoZoom": true,
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "defaultLayer": "OpenStreetMap",
+      "description": "",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 3,
+      "lineColor": "#3d85c6",
+      "maxDataPoints": 400,
+      "pluginVersion": "8.4.1",
+      "pointColor": "#FF780A",
+      "scrollWheelZoom": false,
+      "showLayerChanger": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "GPS Position",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Position"
+          }
+        }
+      ],
+      "type": "pr0ps-trackmap-panel"
+    },
+    {
+      "aliasColors": {
+        "18D508A1:CAN:CH2:ev6-gps:Speed": "#3d85c6",
+        "18D508A1:CAN:CH2:tp-uds-kia-ev6-canmod-gps:Speed": "#3d85c6",
+        "2F6913DB:CAN:CH2:canmod-gps:Speed": "#3d85c6",
+        "Speed (km/h)": "#3d85c6"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 10,
+        "x": 0,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 400,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "9.1.0-89b150abpre",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:877",
+          "alias": "2F6913DB:CAN:CH2:canmod-gps:SpeedAccuracy",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Speed (km/h)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Speed"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Speed (km/h)",
+            "binary": {
+              "left": "2F6913DB:CAN:CH2:ev6-gps:Speed",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "3.6"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:810",
+          "format": "none",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:811",
+          "format": "none",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#3d85c6",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "km"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 10,
+        "y": 5
+      },
+      "id": 9,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Distance Total",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "DistanceTotal"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": -1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 30
+              },
+              {
+                "color": "super-light-green",
+                "value": 40
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "super-light-red",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "dark-red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "km/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 13,
+        "y": 5
+      },
+      "id": 40,
+      "maxDataPoints": 400,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Speed (avg)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Speed"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Speed (km/h)",
+            "binary": {
+              "left": "2F6913DB:CAN:CH2:ev6-gps:Speed",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "3.6"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "orange",
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 45,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 5
+              },
+              {
+                "color": "light-blue",
+                "value": 10
+              },
+              {
+                "color": "#0fccc3",
+                "value": 15
+              },
+              {
+                "color": "light-green",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 25
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 30
+              },
+              {
+                "color": "light-orange",
+                "value": 35
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:BatteryMaxTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Battery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:IndoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Indoor"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:OutdoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Outdoor"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 10,
+        "y": 8
+      },
+      "id": 29,
+      "maxDataPoints": 400,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Temperatures (degC)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "BatteryMax|IndoorOutdoorTemp"
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 43,
+          "min": 34,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 33
+              },
+              {
+                "color": "super-light-orange",
+                "value": 35
+              },
+              {
+                "color": "green",
+                "value": 39
+              },
+              {
+                "color": "super-light-orange",
+                "value": 41
+              },
+              {
+                "color": "red",
+                "value": 43
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:TirePressureFrontLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:TirePressureFrontRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FR"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:TirePressureBackLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:TirePressureBackRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BR"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 16,
+        "y": 8
+      },
+      "id": 25,
+      "maxDataPoints": 400,
+      "options": {
+        "displayMode": "basic",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Tire Pressure (psi)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "TirePressure"
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:TireTemperatureBackLeft": "blue",
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:TireTemperatureBackRight": "#7d7d7d",
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:TireTemperatureFrontLeft": "dark-blue",
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:TireTemperatureFrontRight": "super-light-blue",
+        "2F6913DB:CAN:CH2:canmod-gps:Speed": "#3d85c6"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 19,
+        "y": 8
+      },
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 400,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.1.0-89b150abpre",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Tire Temperature (degC)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "TireTemperature"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "lower",
+                  "options": {
+                    "value": 1
+                  }
+                },
+                "fieldName": "2F6913DB:CAN:CH1:ev6-gps:TireTemperatureFrontLeft"
+              },
+              {
+                "config": {
+                  "id": "lower",
+                  "options": {
+                    "value": 1
+                  }
+                },
+                "fieldName": "2F6913DB:CAN:CH1:ev6-gps:TireTemperatureFrontRight"
+              },
+              {
+                "config": {
+                  "id": "lower",
+                  "options": {
+                    "value": 1
+                  }
+                },
+                "fieldName": "2F6913DB:CAN:CH1:ev6-gps:TireTemperatureBackLeft"
+              },
+              {
+                "config": {
+                  "id": "lower",
+                  "options": {
+                    "value": 1
+                  }
+                },
+                "fieldName": "2F6913DB:CAN:CH1:ev6-gps:TireTemperatureBackRight"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:749",
+          "format": "none",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:750",
+          "format": "none",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {
+        "18D508A1:CAN:CH1:ev6-gps:CCC_CumulativeChargeCurrent": "#5b5b5b"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "grafana-simple-json-datasource",
+        "uid": "CYlqBM8nz"
+      },
+      "description": "",
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 7,
+        "w": 10,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 400,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.1.0-89b150abpre",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:140",
+          "alias": "18D508A1:CAN:CH1:ev6-gps:CCC_CumulativeChargeCurrent",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "Variables",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"${ITF}\",\"chn\":\"${CHN}\",\"db\":\"${DB}\",\"signal\":\"${SIGNAL}\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "Position",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Latitude|Longitude)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "Speed",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Speed)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "DistanceTrip",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(DistanceTrip|DistanceAccuracy)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "Attitude",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Roll|Pitch|Heading)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "DistanceTotal",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"DistanceTotal\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource"
+          },
+          "hide": false,
+          "refId": "GeoFences",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Fence1|Fence2|Fence3|Fence4)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "CellVoltages",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(CellVoltage01|CellVoltage02|CellVoltage03|CellVoltage04|CellVoltage05|CellVoltage06|CellVoltage07|CellVoltage08|CellVoltage09|CellVoltage10|CellVoltage11|CellVoltage12|CellVoltage13|CellVoltage14|CellVoltage15|CellVoltage16|CellVoltage17|CellVoltage18|CellVoltage19|CellVoltage20)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "BatteryTemperatures",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(BatteryTemperature1|BatteryTemperature2|BatteryTemperature3|BatteryTemperature4|BatteryTemperature5)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "SoH",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"StateOfHealth\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "Current DC",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(BatteryDCVoltage|BatteryCurrent)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "BatteryMax",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(BatteryMaxTemperature)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "VehicleSpeed",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(VehicleSpeed)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "TirePressure",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(TirePressureFrontLeft|TirePressureFrontRight|TirePressureBackLeft|TirePressureBackRight)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "TireTemperature",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(TireTemperatureFrontLeft|TireTemperatureFrontRight|TireTemperatureBackLeft|TireTemperatureBackRight)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "IndoorOutdoorTemp",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"(IndoorTemperature|OutdoorTemperature)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "SoC",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH1\",\"db\":\"ev6-gps\",\"signal\":\"StateOfChargeBMS\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "Acceleration",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(AccelerationX|AccelerationY|AccelerationZ)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "Heading",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Heading)\"}",
+          "type": "timeserie"
+        },
+        {
+          "datasource": {
+            "type": "grafana-simple-json-datasource",
+            "uid": "CYlqBM8nz"
+          },
+          "hide": false,
+          "refId": "Validity",
+          "target": "{\"device\":\"${DEVICE}\",\"itf\":\"CAN\",\"chn\":\"CH2\",\"db\":\"ev6-gps\",\"signal\":\"(Satellites|FixType|PositionAccuracy|ImuValid|SpeedValid)\"}",
+          "type": "timeserie"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "${SIGNAL}",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Variables"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:83",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:84",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH2:ev6-gps:AccelerationX"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "X"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH2:ev6-gps:AccelerationY"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Y"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH2:ev6-gps:AccelerationZ"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Z"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 10,
+        "y": 12
+      },
+      "hiddenSeries": false,
+      "id": 35,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 400,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.1.0-89b150abpre",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:140",
+          "alias": "18D508A1:CAN:CH1:ev6-gps:CCC_CumulativeChargeCurrent",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Acceleration (m/s^2)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Acceleration"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:83",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:84",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-blue",
+            "mode": "fixed"
+          },
+          "custom": {
+            "fillOpacity": 36,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "18D508A1:CAN:CH1:ev6-gps:BatteryCurrent"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 12
+      },
+      "id": 23,
+      "maxDataPoints": 400,
+      "options": {
+        "bucketOffset": 0,
+        "bucketSize": 5,
+        "combine": false,
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom"
+        }
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Battery Power (kW)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Current DC"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Battery Power",
+            "binary": {
+              "left": "2F6913DB:CAN:CH1:ev6-gps:BatteryDCVoltage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "2F6913DB:CAN:CH1:ev6-gps:BatteryCurrent"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Battery Power",
+            "binary": {
+              "left": "Battery Power",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "histogram"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Battery Power (kW)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:StateOfChargeBMS"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:StateOfChargeBMS"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "SoC"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 42,
+      "maxDataPoints": 400,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "Speed, Battery Power and SoC",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Speed|Current DC|SoC"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Battery Power (W)",
+            "binary": {
+              "left": "2F6913DB:CAN:CH1:ev6-gps:BatteryDCVoltage",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "2F6913DB:CAN:CH1:ev6-gps:BatteryCurrent"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Battery Power (kW)",
+            "binary": {
+              "left": "Battery Power (W)",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Speed (km/h)",
+            "binary": {
+              "left": "2F6913DB:CAN:CH2:ev6-gps:Speed",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "3.6"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Time",
+                "Battery Power (kW)",
+                "Speed (km/h)",
+                "2F6913DB:CAN:CH1:ev6-gps:StateOfChargeBMS"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "aliasColors": {
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:IndoorTemperature": "orange",
+        "18D508A1:CAN:CH1:tp-uds-kia-ev6-canmod-gps:OutdoorTemperature": "blue",
+        "Battery": "#5c5c5c",
+        "Indoor": "orange",
+        "Outdoor": "blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:BatteryMaxTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Battery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:IndoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Indoor"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH1:ev6-gps:OutdoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Outdoor"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "hiddenSeries": false,
+      "id": 27,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxDataPoints": 400,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.1.0-89b150abpre",
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Temperatures (degC)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "IndoorOutdoorTemp|BatteryMax"
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:269",
+          "format": "none",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:270",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2F6913DB:CAN:CH2:ev6-gps:Satellites"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 43,
+      "maxDataPoints": 400,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.1.0-89b150abpre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 4,
+          "refId": "A"
+        }
+      ],
+      "title": "GNSS/IMU Accuracy",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "Validity"
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "2F6913DB UDS EV6 pt2",
+          "value": "2F6913DB"
+        },
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "definition": "{\"search\":\"device_name\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "DEVICE",
+        "multi": false,
+        "name": "DEVICE",
+        "options": [],
+        "query": "{\"search\":\"device_name\"}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "ev6-gps",
+          "value": "ev6-gps"
+        },
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "definition": "{\"search\":\"db\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "DB",
+        "multi": false,
+        "name": "DB",
+        "options": [],
+        "query": "{\"search\":\"db\"}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "CH1",
+          "value": "CH1"
+        },
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "definition": "{\"search\":\"chn\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "CHN",
+        "multi": false,
+        "name": "CHN",
+        "options": [],
+        "query": "{\"search\":\"chn\"}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "CAN",
+          "value": "CAN"
+        },
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "definition": "{\"search\":\"itf\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "ITF",
+        "multi": false,
+        "name": "ITF",
+        "options": [],
+        "query": "{\"search\":\"itf\"}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "TirePressureFrontLeft",
+            "TirePressureFrontRight",
+            "TirePressureBackLeft",
+            "TirePressureBackRight"
+          ],
+          "value": [
+            "TirePressureFrontLeft",
+            "TirePressureFrontRight",
+            "TirePressureBackLeft",
+            "TirePressureBackRight"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-simple-json-datasource",
+          "uid": "CYlqBM8nz"
+        },
+        "definition": "{\"search\":\"signal\", \"db\": \"${DB}\"}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "SIGNAL",
+        "multi": true,
+        "name": "SIGNAL",
+        "options": [],
+        "query": "{\"search\":\"signal\", \"db\": \"${DB}\"}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "2022-07-27T07:37:15.000Z",
+    "to": "2022-07-27T08:49:17.000Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "CANedge Grafana Backend - Kia EV6",
+  "uid": "u1TFGpL7z",
+  "version": 66,
+  "weekStart": ""
+}

@@ -1,0 +1,337 @@
+{
+  "general": {
+    "device": {
+      "meta": "UDS EV6 pt2"
+    },
+    "security": {},
+    "debug": {
+      "syslog": 3
+    }
+  },
+  "log": {
+    "file": {
+      "split_size": 512,
+      "split_time_period": 900,
+      "split_time_offset": 0,
+      "cyclic": 1
+    },
+    "compression": {
+      "level": 0
+    },
+    "encryption": {
+      "state": 0
+    },
+    "error_frames": {
+      "state": 0
+    }
+  },
+  "rtc": {
+    "sync": 2,
+    "timezone": 0,
+    "adjustment": 0,
+    "ntp_server": "*.pool.ntp.org",
+    "ntp_fallback": 0,
+    "tolerance": 30
+  },
+  "secondaryport": {
+    "power_schedule": [
+      {
+        "from": "00:00",
+        "to": "00:00"
+      }
+    ]
+  },
+  "can_1": {
+    "general": {
+      "rx_state": 1,
+      "tx_state": 1
+    },
+    "phy": {
+      "mode": 0,
+      "retransmission": 0,
+      "fd_spec": 0,
+      "bit_rate_cfg_mode": 1,
+      "bit_rate_std": 500000,
+      "bit_rate_fd": 1000000
+    },
+    "filter": {
+      "remote_frames": 0,
+      "id": [
+        {
+          "name": "Ch1AllExtended",
+          "state": 1,
+          "type": 0,
+          "id_format": 1,
+          "method": 0,
+          "f1": "0",
+          "f2": "1FFFFFFF",
+          "prescaler_type": 0
+        },
+        {
+          "name": "Ch1AllStandard",
+          "state": 1,
+          "type": 0,
+          "id_format": 0,
+          "method": 0,
+          "f1": "0",
+          "f2": "7FF",
+          "prescaler_type": 0
+        }
+      ]
+    },
+    "transmit": [
+      {
+        "name": "SF_BMS",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 0,
+        "id": "7E4",
+        "data": "03220101AAAAAAAA"
+      },
+      {
+        "name": "FC_BMS",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 30,
+        "id": "7E4",
+        "data": "3000000000000000"
+      },
+      {
+        "name": "SF_Temperatures",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 500,
+        "id": "7B3",
+        "data": "03220100AAAAAAAA"
+      },
+      {
+        "name": "FC_Temperatures",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 530,
+        "id": "7B3",
+        "data": "3000000000000000"
+      },
+      {
+        "name": "SF_SoH",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 1000,
+        "id": "7E4",
+        "data": "03220105AAAAAAAA"
+      },
+      {
+        "name": "FC_SoH",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 1030,
+        "id": "7E4",
+        "data": "3000000000000000"
+      },
+      {
+        "name": "SF_Tire",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 1500,
+        "id": "7A0",
+        "data": "0322C00BAAAAAAAA"
+      },
+      {
+        "name": "FC_Tire",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 1530,
+        "id": "7A0",
+        "data": "3000000000000000"
+      },
+      {
+        "name": "SF_CellVolt",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 2000,
+        "id": "7E4",
+        "data": "03220102AAAAAAAA"
+      },
+      {
+        "name": "FC_CellVolt",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 5000,
+        "delay": 2030,
+        "id": "7E4",
+        "data": "3000000000000000"
+      }
+    ],
+    "heartbeat": {
+      "state": 0,
+      "id_format": 1,
+      "id": "00435353"
+    },
+    "control": {
+      "control_rx_state": 0,
+      "control_tx_state": 0,
+      "start": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0100000000000000",
+        "data_low": "0100000000000000"
+      },
+      "stop": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0000000000000000",
+        "data_low": "0000000000000000"
+      }
+    }
+  },
+  "can_2": {
+    "general": {
+      "rx_state": 1,
+      "tx_state": 1
+    },
+    "phy": {
+      "mode": 0,
+      "retransmission": 1,
+      "fd_spec": 0,
+      "bit_rate_cfg_mode": 1,
+      "bit_rate_std": 250000,
+      "bit_rate_fd": 1000000
+    },
+    "filter": {
+      "remote_frames": 0,
+      "id": [
+        {
+          "name": "Ch2AllStandard",
+          "state": 1,
+          "type": 0,
+          "id_format": 0,
+          "method": 1,
+          "f1": "7FF",
+          "f2": "0",
+          "prescaler_type": 0
+        },
+        {
+          "name": "Ch2AllExtended",
+          "state": 1,
+          "type": 0,
+          "id_format": 1,
+          "method": 1,
+          "f1": "1FFFFFFF",
+          "f2": "0",
+          "prescaler_type": 0
+        }
+      ]
+    },
+    "heartbeat": {
+      "state": 0,
+      "id_format": 1,
+      "id": "00435353"
+    },
+    "control": {
+      "control_rx_state": 0,
+      "control_tx_state": 0,
+      "start": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0100000000000000",
+        "data_low": "0100000000000000"
+      },
+      "stop": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0000000000000000",
+        "data_low": "0000000000000000"
+      }
+    }
+  },
+  "lin_1": {
+    "phy": {
+      "mode": 0,
+      "bit_rate": 19200
+    }
+  },
+  "lin_2": {
+    "phy": {
+      "mode": 0,
+      "bit_rate": 19200
+    }
+  },
+  "connect": {
+    "wifi": {
+      "mode": 0,
+      "keyformat": 0,
+      "accesspoint": [
+        {
+          "ssid": "X",
+          "pwd": "X",
+          "minrssi": 0
+        }
+      ]
+    },
+    "s3": {
+      "sync": {
+        "ota": 10,
+        "heartbeat": 10,
+        "logfiles": 1
+      },
+      "server": {
+        "endpoint": "X",
+        "port": 80,
+        "bucket": "X",
+        "region": "X",
+        "request_style": 1,
+        "accesskey": "X",
+        "keyformat": 0,
+        "secretkey": "X",
+        "signed_payload": 0
+      }
+    }
+  }
+}

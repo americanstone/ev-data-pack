@@ -1,0 +1,2728 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 12,
+  "iteration": 1662378090284,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "tags": [],
+      "title": "Dashboards",
+      "type": "dashboards"
+    }
+  ],
+  "panels": [
+    {
+      "datasource": "-- Grafana --",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "content": "<img src=\"https://am.dk/media/6360/kia-ev6-sort.png?anchor=center&mode=crop&width=1280&height=720&rnd=132961239610000000\" alt=\"Kia\">",
+        "mode": "html"
+      },
+      "pluginVersion": "7.3.7",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 4,
+        "y": 0
+      },
+      "id": 43,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"StateOfHealth\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "SoH",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 40
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "light-green",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "dark-green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 6,
+        "y": 0
+      },
+      "id": 44,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"StateOfChargeBMS\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "SoC (last)",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#3d85c6",
+                "value": null
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 8,
+        "y": 0
+      },
+      "id": 45,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"StateOfChargeBMS\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "SoC (used)",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "range"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#3d85c6",
+                "value": null
+              }
+            ]
+          },
+          "unit": "km"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 10,
+        "y": 0
+      },
+      "id": 46,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"DistanceTrip\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Distance (trip)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "DistanceTripKm",
+            "binary": {
+              "left": "DistanceTrip",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 15
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 25
+              },
+              {
+                "color": "dark-red",
+                "value": 30
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 13,
+        "y": 0
+      },
+      "id": 47,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"BatteryDCVoltage\" or r[\"_field\"] == \"BatteryCurrent\" or r[\"_field\"] == \"Speed\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "kWh/100km",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {}
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "mean"
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "W",
+            "binary": {
+              "left": "BatteryDCVoltage 2F6913DB",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "BatteryCurrent 2F6913DB"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "W/(m/s)",
+            "binary": {
+              "left": "W",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "Speed 2F6913DB"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "kWh/100km",
+            "binary": {
+              "left": "W/(m/s)",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "0.027777778"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "autoZoom": true,
+      "datasource": "InfluxDB",
+      "defaultLayer": "OpenStreetMap",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 12,
+      "lineColor": "#3d85c6",
+      "maxDataPoints": 500,
+      "pluginVersion": "7.1.5",
+      "pointColor": "#C4162A",
+      "scrollWheelZoom": false,
+      "showLayerChanger": true,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"Latitude\" or r[\"_field\"] == \"Longitude\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: median)\r\n  |> yield(name: \"median\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "GPS Position",
+      "type": "pr0ps-trackmap-panel"
+    },
+    {
+      "aliasColors": {
+        "S1_PID_0D_VehicleSpeed": "#3d85c6",
+        "S1_PID_11_ThrottlePosition": "#ff9900",
+        "Speed": "#3d85c6",
+        "distance_total": "#3d85c6"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 4,
+        "w": 10,
+        "x": 0,
+        "y": 4
+      },
+      "hiddenSeries": false,
+      "id": 36,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Heading",
+          "yaxis": 2
+        },
+        {
+          "alias": "DistanceTotal",
+          "yaxis": 2
+        },
+        {
+          "alias": "DistanceTrip",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"Speed\")\r\n  |> map(fn: (r) => ({\r\n      r with\r\n      _value: r._value *3.6\r\n    })\r\n  )\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Speed (km/h)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#3d85c6",
+                "value": null
+              }
+            ]
+          },
+          "unit": "km"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 10,
+        "y": 4
+      },
+      "id": 48,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"DistanceTotal\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Distance (total)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "DistanceTripKm",
+            "binary": {
+              "left": "DistanceTrip",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 40
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "light-red",
+                "value": 90
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "km/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 13,
+        "y": 4
+      },
+      "id": 49,
+      "interval": "",
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"Speed\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Speed (avg)",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Speed (km/h)",
+            "binary": {
+              "left": "Speed",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "3.6"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 60,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 5
+              },
+              {
+                "color": "light-blue",
+                "value": 10
+              },
+              {
+                "color": "super-light-blue",
+                "value": 15
+              },
+              {
+                "color": "super-light-green",
+                "value": 20
+              },
+              {
+                "color": "green",
+                "value": 25
+              },
+              {
+                "color": "dark-green",
+                "value": 30
+              },
+              {
+                "color": "#EAB839",
+                "value": 35
+              },
+              {
+                "color": "dark-orange",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OutdoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Outdoor"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IndoorTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Indoor"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "BatteryMaxTemperature"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Battery"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 10,
+        "y": 7
+      },
+      "id": 50,
+      "interval": "",
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"BatteryMaxTemperature\" or r[\"_field\"] == \"IndoorTemperature\" or r[\"_field\"] == \"OutdoorTemperature\")\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Temperatures (degC)",
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "super-light-orange",
+                "value": 34
+              },
+              {
+                "color": "green",
+                "value": 36
+              },
+              {
+                "color": "super-light-orange",
+                "value": 42
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureFrontLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureBackLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureFrontRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FR"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureBackRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BR"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 16,
+        "y": 7
+      },
+      "id": 51,
+      "interval": "",
+      "options": {
+        "displayMode": "basic",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"TirePressureFrontLeft\" or r[\"_field\"] == \"TirePressureFrontRight\" or r[\"_field\"] == \"TirePressureBackLeft\" or r[\"_field\"] == \"TirePressureBackRight\")\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Tire Pressure (psi)",
+      "type": "bargauge"
+    },
+    {
+      "aliasColors": {
+        "TireTemperatureBackLeft": "dark-blue",
+        "TireTemperatureBackRight": "super-light-blue",
+        "TireTemperatureFrontLeft": "light-blue",
+        "TireTemperatureFrontRight": "light-blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "super-light-orange",
+                "value": 34
+              },
+              {
+                "color": "green",
+                "value": 36
+              },
+              {
+                "color": "super-light-orange",
+                "value": 42
+              },
+              {
+                "color": "red",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureFrontLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureBackLeft"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BL"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureFrontRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "FR"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TirePressureBackRight"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "BR"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 19,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 52,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"TireTemperatureFrontLeft\" or r[\"_field\"] == \"TireTemperatureFrontRight\" or r[\"_field\"] == \"TireTemperatureBackLeft\" or r[\"_field\"] == \"TireTemperatureBackRight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Tire Temperature (degC)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "S1_PID_0B_IntakeManiAbsPress": "#ff9900",
+        "S1_PID_0C_EngineRPM": "#ff9900",
+        "S1_PID_0D_VehicleSpeed": "#3d85c6",
+        "S1_PID_10_MAFAirFlowRate": "#3d85c6",
+        "S1_PID_62_ActualEngTorqPct": "#3d85c6"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 7,
+        "w": 10,
+        "x": 0,
+        "y": 8
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "S1_PID_11_ThrottlePosition",
+          "yaxis": 2
+        },
+        {
+          "alias": "S1_PID_0C_EngineRPM",
+          "yaxis": 2
+        },
+        {
+          "alias": "AccelerationZ",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /\\b${parameters:regex}\\b/)\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "${parameters}",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "S1_PID_0D_VehicleSpeed": "#3d85c6",
+        "S1_PID_11_ThrottlePosition": "#ff9900",
+        "X": "green",
+        "Y": "semi-dark-orange",
+        "Z": "super-light-blue",
+        "distance_total": "#3d85c6"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AccelerationY"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Y"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AccelerationZ"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Z"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AccelerationX"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "X"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 10,
+        "y": 11
+      },
+      "hiddenSeries": false,
+      "id": 20,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "AccelerationZ",
+          "yaxis": 2
+        },
+        {
+          "alias": "Z",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"AccelerationX\" or r[\"_field\"] == \"AccelerationY\" or r[\"_field\"] == \"AccelerationZ\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Acceleration (m/s^2)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "W": "purple",
+        "kW": "purple"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 15
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 25
+              },
+              {
+                "color": "dark-red",
+                "value": 30
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 2,
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 11
+      },
+      "hiddenSeries": false,
+      "id": 53,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 0.5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: v.defaultBucket)\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] =~ /\\b${devices:regex}\\b/)\r\n  |> filter(fn: (r) => r[\"_field\"] == \"BatteryDCVoltage\" or r[\"_field\"] == \"BatteryCurrent\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean)\r\n  |> yield(name: \"mean\")",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Power Consumption (kW)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "W",
+            "binary": {
+              "left": "BatteryDCVoltage 2F6913DB",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "BatteryCurrent 2F6913DB"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "kW",
+            "binary": {
+              "left": "W",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": [
+            "2F6913DB"
+          ],
+          "value": [
+            "2F6913DB"
+          ]
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "devices",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "2F6913DB",
+            "value": "2F6913DB"
+          }
+        ],
+        "query": "2F6913DB",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "AngularRateX",
+            "AngularRateY"
+          ],
+          "value": [
+            "AngularRateX",
+            "AngularRateY"
+          ]
+        },
+        "datasource": "InfluxDB",
+        "definition": "",
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "parameters",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "AccelerationX",
+            "value": "AccelerationX"
+          },
+          {
+            "selected": false,
+            "text": "AccelerationY",
+            "value": "AccelerationY"
+          },
+          {
+            "selected": false,
+            "text": "AccelerationZ",
+            "value": "AccelerationZ"
+          },
+          {
+            "selected": false,
+            "text": "Altitude",
+            "value": "Altitude"
+          },
+          {
+            "selected": false,
+            "text": "AltitudeAccuracy",
+            "value": "AltitudeAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "AltitudeValid",
+            "value": "AltitudeValid"
+          },
+          {
+            "selected": true,
+            "text": "AngularRateX",
+            "value": "AngularRateX"
+          },
+          {
+            "selected": true,
+            "text": "AngularRateY",
+            "value": "AngularRateY"
+          },
+          {
+            "selected": false,
+            "text": "AngularRateZ",
+            "value": "AngularRateZ"
+          },
+          {
+            "selected": false,
+            "text": "AttitudeValid",
+            "value": "AttitudeValid"
+          },
+          {
+            "selected": false,
+            "text": "BMSIgnition",
+            "value": "BMSIgnition"
+          },
+          {
+            "selected": false,
+            "text": "BMSMainRelay",
+            "value": "BMSMainRelay"
+          },
+          {
+            "selected": false,
+            "text": "BatteryAvailableChargePower",
+            "value": "BatteryAvailableChargePower"
+          },
+          {
+            "selected": false,
+            "text": "BatteryAvailableDischargePower",
+            "value": "BatteryAvailableDischargePower"
+          },
+          {
+            "selected": false,
+            "text": "BatteryCurrent",
+            "value": "BatteryCurrent"
+          },
+          {
+            "selected": false,
+            "text": "BatteryDCVoltage",
+            "value": "BatteryDCVoltage"
+          },
+          {
+            "selected": false,
+            "text": "BatteryFanFeedback",
+            "value": "BatteryFanFeedback"
+          },
+          {
+            "selected": false,
+            "text": "BatteryFanStatus",
+            "value": "BatteryFanStatus"
+          },
+          {
+            "selected": false,
+            "text": "BatteryHeaterTemperature1",
+            "value": "BatteryHeaterTemperature1"
+          },
+          {
+            "selected": false,
+            "text": "BatteryMaxTemperature",
+            "value": "BatteryMaxTemperature"
+          },
+          {
+            "selected": false,
+            "text": "BatteryMinTemperature",
+            "value": "BatteryMinTemperature"
+          },
+          {
+            "selected": false,
+            "text": "BatteryTemperature1",
+            "value": "BatteryTemperature1"
+          },
+          {
+            "selected": false,
+            "text": "BatteryTemperature2",
+            "value": "BatteryTemperature2"
+          },
+          {
+            "selected": false,
+            "text": "BatteryTemperature3",
+            "value": "BatteryTemperature3"
+          },
+          {
+            "selected": false,
+            "text": "BatteryTemperature4",
+            "value": "BatteryTemperature4"
+          },
+          {
+            "selected": false,
+            "text": "BatteryTemperature5",
+            "value": "BatteryTemperature5"
+          },
+          {
+            "selected": false,
+            "text": "BatteryVoltageAuxillary",
+            "value": "BatteryVoltageAuxillary"
+          },
+          {
+            "selected": false,
+            "text": "CCC_CumulativeChargeCurrent",
+            "value": "CCC_CumulativeChargeCurrent"
+          },
+          {
+            "selected": false,
+            "text": "CDC_CumulativeDischargeCurrent",
+            "value": "CDC_CumulativeDischargeCurrent"
+          },
+          {
+            "selected": false,
+            "text": "CEC_CumulativeEnergyCharged",
+            "value": "CEC_CumulativeEnergyCharged"
+          },
+          {
+            "selected": false,
+            "text": "CED_CumulativeEnergyDischarged",
+            "value": "CED_CumulativeEnergyDischarged"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage01",
+            "value": "CellVoltage01"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage02",
+            "value": "CellVoltage02"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage03",
+            "value": "CellVoltage03"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage04",
+            "value": "CellVoltage04"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage05",
+            "value": "CellVoltage05"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage06",
+            "value": "CellVoltage06"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage07",
+            "value": "CellVoltage07"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage08",
+            "value": "CellVoltage08"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage09",
+            "value": "CellVoltage09"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage10",
+            "value": "CellVoltage10"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage11",
+            "value": "CellVoltage11"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage12",
+            "value": "CellVoltage12"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage13",
+            "value": "CellVoltage13"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage14",
+            "value": "CellVoltage14"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage15",
+            "value": "CellVoltage15"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage16",
+            "value": "CellVoltage16"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage17",
+            "value": "CellVoltage17"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage18",
+            "value": "CellVoltage18"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage19",
+            "value": "CellVoltage19"
+          },
+          {
+            "selected": false,
+            "text": "CellVoltage20",
+            "value": "CellVoltage20"
+          },
+          {
+            "selected": false,
+            "text": "Charging",
+            "value": "Charging"
+          },
+          {
+            "selected": false,
+            "text": "DistanceAccuracy",
+            "value": "DistanceAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "DistanceTotal",
+            "value": "DistanceTotal"
+          },
+          {
+            "selected": false,
+            "text": "DistanceTrip",
+            "value": "DistanceTrip"
+          },
+          {
+            "selected": false,
+            "text": "DistanceValid",
+            "value": "DistanceValid"
+          },
+          {
+            "selected": false,
+            "text": "Epoch",
+            "value": "Epoch"
+          },
+          {
+            "selected": false,
+            "text": "Fence1",
+            "value": "Fence1"
+          },
+          {
+            "selected": false,
+            "text": "Fence2",
+            "value": "Fence2"
+          },
+          {
+            "selected": false,
+            "text": "Fence3",
+            "value": "Fence3"
+          },
+          {
+            "selected": false,
+            "text": "Fence4",
+            "value": "Fence4"
+          },
+          {
+            "selected": false,
+            "text": "FenceCombined",
+            "value": "FenceCombined"
+          },
+          {
+            "selected": false,
+            "text": "FenceValid",
+            "value": "FenceValid"
+          },
+          {
+            "selected": false,
+            "text": "FixType",
+            "value": "FixType"
+          },
+          {
+            "selected": false,
+            "text": "Heading",
+            "value": "Heading"
+          },
+          {
+            "selected": false,
+            "text": "HeadingAccuracy",
+            "value": "HeadingAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "ImuValid",
+            "value": "ImuValid"
+          },
+          {
+            "selected": false,
+            "text": "IndoorTemperature",
+            "value": "IndoorTemperature"
+          },
+          {
+            "selected": false,
+            "text": "Latitude",
+            "value": "Latitude"
+          },
+          {
+            "selected": false,
+            "text": "Longitude",
+            "value": "Longitude"
+          },
+          {
+            "selected": false,
+            "text": "MaxCellVoltage",
+            "value": "MaxCellVoltage"
+          },
+          {
+            "selected": false,
+            "text": "MaxCellVoltageCellNo",
+            "value": "MaxCellVoltageCellNo"
+          },
+          {
+            "selected": false,
+            "text": "MinCellVoltage",
+            "value": "MinCellVoltage"
+          },
+          {
+            "selected": false,
+            "text": "MinCellVoltageCellNo",
+            "value": "MinCellVoltageCellNo"
+          },
+          {
+            "selected": false,
+            "text": "MinDeterioration",
+            "value": "MinDeterioration"
+          },
+          {
+            "selected": false,
+            "text": "MinDeteriorationCellNo",
+            "value": "MinDeteriorationCellNo"
+          },
+          {
+            "selected": false,
+            "text": "NormalChargePort",
+            "value": "NormalChargePort"
+          },
+          {
+            "selected": false,
+            "text": "OperatingTime",
+            "value": "OperatingTime"
+          },
+          {
+            "selected": false,
+            "text": "OutdoorTemperature",
+            "value": "OutdoorTemperature"
+          },
+          {
+            "selected": false,
+            "text": "Pitch",
+            "value": "Pitch"
+          },
+          {
+            "selected": false,
+            "text": "PitchAccuracy",
+            "value": "PitchAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "PositionAccuracy",
+            "value": "PositionAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "PositionValid",
+            "value": "PositionValid"
+          },
+          {
+            "selected": false,
+            "text": "RapidChargePort",
+            "value": "RapidChargePort"
+          },
+          {
+            "selected": false,
+            "text": "Roll",
+            "value": "Roll"
+          },
+          {
+            "selected": false,
+            "text": "RollAccuracy",
+            "value": "RollAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "Satellites",
+            "value": "Satellites"
+          },
+          {
+            "selected": false,
+            "text": "Speed",
+            "value": "Speed"
+          },
+          {
+            "selected": false,
+            "text": "SpeedAccuracy",
+            "value": "SpeedAccuracy"
+          },
+          {
+            "selected": false,
+            "text": "SpeedValid",
+            "value": "SpeedValid"
+          },
+          {
+            "selected": false,
+            "text": "StateOfChargeBMS",
+            "value": "StateOfChargeBMS"
+          },
+          {
+            "selected": false,
+            "text": "StateOfChargeDisplay",
+            "value": "StateOfChargeDisplay"
+          },
+          {
+            "selected": false,
+            "text": "StateOfHealth",
+            "value": "StateOfHealth"
+          },
+          {
+            "selected": false,
+            "text": "TimeConfirmed",
+            "value": "TimeConfirmed"
+          },
+          {
+            "selected": false,
+            "text": "TimeValid",
+            "value": "TimeValid"
+          },
+          {
+            "selected": false,
+            "text": "TirePressureBackLeft",
+            "value": "TirePressureBackLeft"
+          },
+          {
+            "selected": false,
+            "text": "TirePressureBackRight",
+            "value": "TirePressureBackRight"
+          },
+          {
+            "selected": false,
+            "text": "TirePressureFrontLeft",
+            "value": "TirePressureFrontLeft"
+          },
+          {
+            "selected": false,
+            "text": "TirePressureFrontRight",
+            "value": "TirePressureFrontRight"
+          },
+          {
+            "selected": false,
+            "text": "TireTemperatureBackLeft",
+            "value": "TireTemperatureBackLeft"
+          },
+          {
+            "selected": false,
+            "text": "TireTemperatureBackRight",
+            "value": "TireTemperatureBackRight"
+          },
+          {
+            "selected": false,
+            "text": "TireTemperatureFrontLeft",
+            "value": "TireTemperatureFrontLeft"
+          },
+          {
+            "selected": false,
+            "text": "TireTemperatureFrontRight",
+            "value": "TireTemperatureFrontRight"
+          },
+          {
+            "selected": false,
+            "text": "VehicleSpeed",
+            "value": "VehicleSpeed"
+          }
+        ],
+        "query": "import \"influxdata/influxdb/schema\"\r\nschema.fieldKeys(bucket:  v.defaultBucket, predicate: (r) => r[\"_measurement\"] == \"2F6913DB\")",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "2022-08-20T07:37:22.197Z",
+    "to": "2022-08-20T08:52:53.782Z"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "css-playground-kia-ev6",
+  "uid": "yBc5x90nk2",
+  "version": 13
+}

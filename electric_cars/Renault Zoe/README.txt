@@ -1,0 +1,1 @@
+The DBC for the Renault Zoe is a subset of the available signals - more can be found via online resources.
